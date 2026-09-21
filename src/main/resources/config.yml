@@ -1,0 +1,16 @@
+# Sprache: 'de' für Deutsch, 'en' für Englisch
+language: de
+
+# Titel des GUIs (Farbcodes & Hex erlaubt)
+gui-title: "&8&lServer Info | Menü"
+
+# Slots (Positionen im Inventar, 0-53)
+slots:
+  start: 10
+  shards: 11
+  money: 12
+  eggs: 13
+  commands: 14
+  ranks: 15
+  tags: 19
+  spawner: 20
