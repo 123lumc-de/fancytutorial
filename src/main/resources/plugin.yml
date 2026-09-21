@@ -1,0 +1,10 @@
+name: TutorialGUI
+version: 1.0
+main: de.deinname.tutorialgui.TutorialGUI
+api-version: '1.21'
+author: DeinName
+description: Ein Tutorial GUI für den SMP Server.
+commands:
+  tutorial:
+    description: Öffnet das Tutorial Menü.
+    usage: /tutorial
