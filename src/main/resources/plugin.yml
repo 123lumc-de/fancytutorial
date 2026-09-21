@@ -1,0 +1,11 @@
+name: FancyTutorial
+version: 1.0.0
+main: de.lmcstudio.fancytutorial.FancyTutorial
+api-version: '1.21'
+author: lmcstudio
+description: Ein Tutorial GUI für den SMP Server.
+commands:
+  tutorial:
+    description: Öffnet das Tutorial Menü.
+    usage: /tutorial
+    aliases: [tut, hilfe]
