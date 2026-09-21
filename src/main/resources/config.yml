@@ -2,7 +2,7 @@
 language: de
 
 # Titel des GUIs (Farbcodes & Hex erlaubt)
-gui-title: "&8&lServer Info | Menü"
+gui-title: "&7&lServer Info"
 
 # Slots (Positionen im Inventar, 0-53)
 slots:
