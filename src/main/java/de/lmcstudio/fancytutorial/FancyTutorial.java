@@ -251,7 +251,14 @@ public class FancyTutorial extends JavaPlugin implements Listener {
             
             // Versteckt die standardmäßigen Minecraft-Beschreibungen (wie "Minecraft" oder "Interact with Spawn Egg")
             if (hideFlags) {
-                meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_DYE, ItemFlag.HIDE_POTION_EFFECTS);
+                // WICHTIG: HIDE_POTION_EFFECTS heißt jetzt HIDE_ADDITIONAL_TOOLTIP
+                meta.addItemFlags(
+                    ItemFlag.HIDE_ATTRIBUTES, 
+                    ItemFlag.HIDE_UNBREAKABLE, 
+                    ItemFlag.HIDE_ENCHANTS, 
+                    ItemFlag.HIDE_DYE, 
+                    ItemFlag.HIDE_ADDITIONAL_TOOLTIP
+                );
             }
             
             item.setItemMeta(meta);
