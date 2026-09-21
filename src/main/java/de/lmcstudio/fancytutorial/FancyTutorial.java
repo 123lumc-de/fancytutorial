@@ -25,10 +25,15 @@ public class FancyTutorial extends JavaPlugin implements Listener {
     private String GUI_TITLE;
     private String LANG;
 
-    // Deine Hex-Farben
-    private final String HEX_GREEN = "#A9FF00";
-    private final String HEX_MINT = "#25FF95";
-    private final String HEX_PURPLE = "#9400FF";
+    // --- FARBEN (Hex) ---
+    private final String C_START    = "#A9FF00"; // Hellgrün
+    private final String C_SHARDS   = "#9400FF"; // Lila/Pink (wie gewünscht)
+    private final String C_MONEY    = "#25FF95"; // Mint
+    private final String C_EGGS     = "#FFD700"; // Gold/Gelb
+    private final String C_COMMANDS = "#00BFFF"; // Himmelblau
+    private final String C_RANKS    = "#FF4500"; // Orangerot
+    private final String C_TAGS     = "#FF69B4"; // Pink
+    private final String C_SPAWNER  = "#00FFFF"; // Cyan/Türkis
 
     @Override
     public void onEnable() {
@@ -71,125 +76,125 @@ public class FancyTutorial extends JavaPlugin implements Listener {
 
         // --- ITEMS ERSTELLEN ---
         
-        // 1. Start
+        // 1. Start (Hellgrün)
         inv.setItem(slotStart, createItem(Material.OAK_SAPLING, 
-                getMsg("start.title", HEX_GREEN + "&lWIE KANNST DU GUT STARTEN?"),
+                getMsg("start.title", C_START + "&lWIE KANNST DU GUT STARTEN?"),
                 getMsgList("start.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_GREEN + "➜ Fange mit /rtp an und baue",
-                        HEX_GREEN + "jeden OAK_LOG Block ab und verkaufe ihn",
-                        HEX_GREEN + "mit /sell!",
+                        C_START + "➜ Fange mit /rtp an und baue",
+                        C_START + "jeden OAK_LOG Block ab und verkaufe ihn",
+                        C_START + "mit /sell!",
                         "",
-                        HEX_GREEN + "&lInformation:",
+                        C_START + "&lInformation:",
                         "&fDein Ziel auf dem Server ist es,",
                         "&fam meisten Geld zu haben.",
                         "",
-                        HEX_GREEN + "&lTipp:",
+                        C_START + "&lTipp:",
                         "&fMache /worth <item> um zu gucken,",
                         "&fwie viel die verschiedenen Items kosten."),
-                HEX_GREEN + "&l➜ KLICKE zum Öffnen", true));
+                C_START + "&l➜ KLICKE zum Öffnen", true));
 
-        // 2. Shards
+        // 2. Shards (Lila/Pink)
         inv.setItem(slotShards, createItem(Material.AMETHYST_SHARD, 
-                getMsg("shards.title", HEX_PURPLE + "&lSHARDS"),
+                getMsg("shards.title", C_SHARDS + "&lSHARDS"),
                 getMsgList("shards.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_PURPLE + "➜ So kannst du gut Shards sammeln:",
+                        C_SHARDS + "➜ So kannst du gut Shards sammeln:",
                         "",
-                        HEX_PURPLE + "&lMethoden:",
+                        C_SHARDS + "&lMethoden:",
                         "&f- Du kannst Shards durch's AFK-stehen in /afk bekommen",
                         "&f- Events und Giveaways im Discord (/discord)",
                         "&f- Crates, in einigen Crates sind Shards!",
                         "&f- Durch Hills kannst du Shards bekommen",
                         "",
-                        HEX_PURPLE + "&lInformation:",
+                        C_SHARDS + "&lInformation:",
                         "&fNutze Shards, um",
                         "&fsie im /shardshop auszugeben"),
-                HEX_PURPLE + "&l➜ KLICKE zum Öffnen", true));
+                C_SHARDS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 3. Geld
+        // 3. Geld (Mint)
         inv.setItem(slotMoney, createItem(Material.EMERALD, 
-                getMsg("money.title", HEX_MINT + "&lGELD BEKOMMEN"),
+                getMsg("money.title", C_MONEY + "&lGELD BEKOMMEN"),
                 getMsgList("money.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_MINT + "➜ Verdiene Geld indem du Items",
-                        HEX_MINT + "mit /sell verkaufst.",
+                        C_MONEY + "➜ Verdiene Geld indem du Items",
+                        C_MONEY + "mit /sell verkaufst.",
                         "",
-                        HEX_MINT + "&lBeispiel Methoden:",
+                        C_MONEY + "&lBeispiel Methoden:",
                         "&f- Zuckerrohr verkaufen (Farmen)",
                         "&f- Bambus Farmen",
                         "&f- Sea Pickle Farmen",
                         "&f- Spawner AFK'n",
                         "&f- an Events/Giveaways teilnehmen (/discord)"),
-                HEX_MINT + "&l➜ KLICKE zum Öffnen", true));
+                C_MONEY + "&l➜ KLICKE zum Öffnen", true));
 
-        // 4. Eggs
+        // 4. Eggs (Gold/Gelb)
         inv.setItem(slotEggs, createItem(Material.SNIFFER_EGG, 
-                getMsg("eggs.title", HEX_MINT + "&lEGGS"),
+                getMsg("eggs.title", C_EGGS + "&lEGGS"),
                 getMsgList("eggs.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_MINT + "➜ Du kannst Eggs benutzen, damit sie",
-                        HEX_MINT + "dir Geld generieren. Mit Upgrades, machen sie noch mehr",
+                        C_EGGS + "➜ Du kannst Eggs benutzen, damit sie",
+                        C_EGGS + "dir Geld generieren. Mit Upgrades, machen sie noch mehr",
                         "",
-                        HEX_MINT + "&lInformation:",
+                        C_EGGS + "&lInformation:",
                         "&fDu kannst Eggs durch Crates",
                         "&fOder im Shards-Shop bekommen (/shardshop)"),
-                HEX_MINT + "&l➜ KLICKE zum Öffnen", true));
+                C_EGGS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 5. Commands
+        // 5. Commands (Himmelblau)
         inv.setItem(slotCommands, createItem(Material.GOLD_BLOCK, 
-                getMsg("commands.title", HEX_GREEN + "&lWICHTIGE COMMANDS"),
+                getMsg("commands.title", C_COMMANDS + "&lWICHTIGE COMMANDS"),
                 getMsgList("commands.lore", 
                         "&7Beschreibung",
                         "",
                         "&fFighte gegen Spieler mit /rtpqueue oder /duel",
                         "",
-                        HEX_GREEN + "- /shop",
-                        HEX_GREEN + "- /ah",
-                        HEX_GREEN + "- /home",
-                        HEX_GREEN + "- /spawn",
-                        HEX_GREEN + "- /rtp"),
-                HEX_GREEN + "&l➜ KLICKE zum Öffnen", true));
+                        C_COMMANDS + "- /shop",
+                        C_COMMANDS + "- /ah",
+                        C_COMMANDS + "- /home",
+                        C_COMMANDS + "- /spawn",
+                        C_COMMANDS + "- /rtp"),
+                C_COMMANDS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 6. Ranks
+        // 6. Ranks (Orangerot)
         inv.setItem(slotRanks, createItem(Material.TOTEM_OF_UNDYING, 
-                getMsg("ranks.title", HEX_PURPLE + "&lRANKS"),
+                getMsg("ranks.title", C_RANKS + "&lRANKS"),
                 getMsgList("ranks.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_PURPLE + "&lInformation:",
+                        C_RANKS + "&lInformation:",
                         "&fSiehe alle Ränge und wie",
                         "&fdu sie bekommst."),
-                HEX_PURPLE + "&l➜ KLICKE zum Öffnen", true));
+                C_RANKS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 7. Tags
+        // 7. Tags (Pink)
         inv.setItem(slotTags, createItem(Material.NAME_TAG, 
-                getMsg("tags.title", HEX_PURPLE + "&lTAGS"),
+                getMsg("tags.title", C_TAGS + "&lTAGS"),
                 getMsgList("tags.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_PURPLE + "&lInformation:",
+                        C_TAGS + "&lInformation:",
                         "&fSiehe dir alle deine Tags an"),
-                HEX_PURPLE + "&l➜ KLICKE zum Öffnen", true));
+                C_TAGS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 8. Spawner
+        // 8. Spawner (Cyan/Türkis)
         inv.setItem(slotSpawner, createItem(Material.VAULT, 
-                getMsg("spawner.title", HEX_GREEN + "&lSPAWNER"),
+                getMsg("spawner.title", C_SPAWNER + "&lSPAWNER"),
                 getMsgList("spawner.lore", 
                         "&7Beschreibung",
                         "",
-                        HEX_GREEN + "➜ Du kannst Spawner platzieren",
-                        HEX_GREEN + "so generieren sie dir automatisch Geld und Items!",
-                        HEX_GREEN + "Um alles einzusammeln: Den Spawner Rechts Klicken.",
+                        C_SPAWNER + "➜ Du kannst Spawner platzieren",
+                        C_SPAWNER + "so generieren sie dir automatisch Geld und Items!",
+                        C_SPAWNER + "Um alles einzusammeln: Den Spawner Rechts Klicken.",
                         "",
-                        HEX_GREEN + "&lInformation:",
+                        C_SPAWNER + "&lInformation:",
                         "&fDu kannst Spawner durch Crates",
                         "&fOder im Shards-Shop bekommen (/shardshop)"),
-                HEX_GREEN + "&l➜ KLICKE zum Öffnen", true));
+                C_SPAWNER + "&l➜ KLICKE zum Öffnen", true));
 
         player.openInventory(inv);
     }
@@ -197,7 +202,6 @@ public class FancyTutorial extends JavaPlugin implements Listener {
     // --- HILFSMETHODEN ---
 
     private String getMsg(String path, String defaultText) {
-        // Wenn die Config den Pfad hat, nutze sie, sonst den Standardtext
         return getConfig().getString("messages." + path, defaultText);
     }
 
@@ -222,14 +226,12 @@ public class FancyTutorial extends JavaPlugin implements Listener {
             for (String line : lore) {
                 coloredLore.add(translateHex(line));
             }
-            // Fügt den "Klicke zum Öffnen" Text hinzu
             if (clickText != null && !clickText.isEmpty()) {
                 coloredLore.add("");
                 coloredLore.add(translateHex(clickText));
             }
             meta.setLore(coloredLore);
             
-            // Versteckt die standardmäßigen Minecraft-Beschreibungen
             if (hideFlags) {
                 meta.addItemFlags(
                     ItemFlag.HIDE_ATTRIBUTES, 
@@ -245,14 +247,10 @@ public class FancyTutorial extends JavaPlugin implements Listener {
         return item;
     }
 
-    // Übersetzt Hex-Codes und &-Codes
     private String translateHex(String message) {
         if (message == null) return "";
-        
-        // 1. Ersetzt & durch § für Standard-Farben
         message = ChatColor.translateAlternateColorCodes('&', message);
         
-        // 2. Sucht nach #RRGGBB und wandelt es in §x§R§R§G§G§B§B um
         java.util.regex.Pattern pattern = java.util.regex.Pattern.compile("#[a-fA-F0-9]{6}");
         java.util.regex.Matcher matcher = pattern.matcher(message);
         StringBuffer buffer = new StringBuffer();
