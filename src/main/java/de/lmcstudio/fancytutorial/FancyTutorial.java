@@ -27,13 +27,14 @@ public class FancyTutorial extends JavaPlugin implements Listener {
 
     // --- FARBEN (Hex) ---
     private final String C_START    = "#A9FF00"; // Hellgrün
-    private final String C_SHARDS   = "#9400FF"; // Lila/Pink (wie gewünscht)
+    private final String C_SHARDS   = "#9400FF"; // Lila/Pink
     private final String C_MONEY    = "#25FF95"; // Mint
     private final String C_EGGS     = "#FFD700"; // Gold/Gelb
     private final String C_COMMANDS = "#00BFFF"; // Himmelblau
     private final String C_RANKS    = "#FF4500"; // Orangerot
     private final String C_TAGS     = "#FF69B4"; // Pink
     private final String C_SPAWNER  = "#00FFFF"; // Cyan/Türkis
+    private final String C_CRYSTALS = "#E31749"; // Kristall-Rot (NEU)
 
     @Override
     public void onEnable() {
@@ -65,14 +66,15 @@ public class FancyTutorial extends JavaPlugin implements Listener {
         GUI_TITLE = translateHex(getConfig().getString("gui-title", "&8&lServer Info | Menü"));
         Inventory inv = Bukkit.createInventory(null, 54, GUI_TITLE);
 
-        int slotStart = getConfig().getInt("slots.start", 10);
-        int slotShards = getConfig().getInt("slots.shards", 11);
-        int slotMoney = getConfig().getInt("slots.money", 12);
-        int slotEggs = getConfig().getInt("slots.eggs", 13);
+        int slotStart    = getConfig().getInt("slots.start", 10);
+        int slotShards   = getConfig().getInt("slots.shards", 11);
+        int slotMoney    = getConfig().getInt("slots.money", 12);
+        int slotEggs     = getConfig().getInt("slots.eggs", 13);
         int slotCommands = getConfig().getInt("slots.commands", 14);
-        int slotRanks = getConfig().getInt("slots.ranks", 15);
-        int slotTags = getConfig().getInt("slots.tags", 19);
-        int slotSpawner = getConfig().getInt("slots.spawner", 20);
+        int slotRanks    = getConfig().getInt("slots.ranks", 15);
+        int slotCrystals = getConfig().getInt("slots.crystals", 16); // NEU
+        int slotTags     = getConfig().getInt("slots.tags", 19);
+        int slotSpawner  = getConfig().getInt("slots.spawner", 20);
 
         // --- ITEMS ERSTELLEN ---
         
@@ -171,7 +173,24 @@ public class FancyTutorial extends JavaPlugin implements Listener {
                         "&fdu sie bekommst."),
                 C_RANKS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 7. Tags (Pink)
+        // 7. Crystals (NEU - Kristall-Rot #E31749)
+        inv.setItem(slotCrystals, createItem(Material.AMETHYST_CLUSTER, 
+                getMsg("crystals.title", C_CRYSTALS + "&lCRYSTALS"),
+                getMsgList("crystals.lore", 
+                        "&7Beschreibung",
+                        "",
+                        C_CRYSTALS + "➜ Crystals sind eine kosmetische Währung.",
+                        "",
+                        C_CRYSTALS + "&lInformation:",
+                        "&fDu kannst Crystals im /cshop ausgeben,",
+                        "&fum dir kosmetische Gegenstände zu kaufen.",
+                        "",
+                        C_CRYSTALS + "&lMethoden:",
+                        "&f- Crates",
+                        "&f- Events & Giveaways (/discord)"),
+                C_CRYSTALS + "&l➜ KLICKE zum Öffnen", true));
+
+        // 8. Tags (Pink)
         inv.setItem(slotTags, createItem(Material.NAME_TAG, 
                 getMsg("tags.title", C_TAGS + "&lTAGS"),
                 getMsgList("tags.lore", 
@@ -181,7 +200,7 @@ public class FancyTutorial extends JavaPlugin implements Listener {
                         "&fSiehe dir alle deine Tags an"),
                 C_TAGS + "&l➜ KLICKE zum Öffnen", true));
 
-        // 8. Spawner (Cyan/Türkis)
+        // 9. Spawner (Cyan/Türkis)
         inv.setItem(slotSpawner, createItem(Material.VAULT, 
                 getMsg("spawner.title", C_SPAWNER + "&lSPAWNER"),
                 getMsgList("spawner.lore", 
@@ -280,6 +299,7 @@ public class FancyTutorial extends JavaPlugin implements Listener {
 
                 if (clickedItem == null || clickedItem.getType() == Material.AIR) return;
 
+                // Klick-Aktionen
                 if (clickedItem.getType() == Material.TOTEM_OF_UNDYING) {
                     player.closeInventory();
                     player.performCommand("ranks");
@@ -289,6 +309,9 @@ public class FancyTutorial extends JavaPlugin implements Listener {
                 } else if (clickedItem.getType() == Material.SNIFFER_EGG) {
                     player.closeInventory();
                     player.performCommand("eggs");
+                } else if (clickedItem.getType() == Material.AMETHYST_CLUSTER) { // NEU: Crystals
+                    player.closeInventory();
+                    player.performCommand("cshop");
                 }
             }
         }
