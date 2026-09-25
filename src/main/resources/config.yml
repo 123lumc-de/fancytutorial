@@ -2,7 +2,7 @@
 language: de
 
 # Titel des GUIs (Farbcodes & Hex erlaubt)
-gui-title: "&7&lServer Info"
+gui-title: "&8&lServer Info | Menü"
 
 # Slots (Positionen im Inventar, 0-53)
 slots:
@@ -12,5 +12,6 @@ slots:
   eggs: 13
   commands: 14
   ranks: 15
+  crystals: 16    # <-- NEU
   tags: 19
   spawner: 20
